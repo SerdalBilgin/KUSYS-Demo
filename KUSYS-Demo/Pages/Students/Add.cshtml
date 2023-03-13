@@ -1,0 +1,44 @@
+﻿@page
+@model KUSYS_Demo.Pages.Students.AddModel
+@{
+    <title> Students</title>
+}
+
+
+
+<div class="bg-secondary bg-opacity-10 py-2 mb-4">
+    <div class="container">
+        <h1>ADDING  AND LISTING STUDENTS</h1>   
+    </div>
+    </div>
+   <div>
+    <div class="container">
+        <form method="post">
+        <div class="mb-3">
+            <b><label for="FName">First Name :</label></b>
+            <input type="text" id="FName" class="form-control" name="FirstName" asp-for="AddStudentRequest.FirstName" /><br />
+        </div>
+        <div class="mb-3">
+            <b>  <label for="LName" class="form-label">Last Name :</label></b>
+            <input type="text" id="LName"  class="form-control" name="LastName" asp-for="AddStudentRequest.LastName" /><br />
+        </div>
+        <div class="mb-3">
+            <b> <label for="BDate" class="form-label">Birth Date  :</label></b>
+            <input type="date" id="BDate" class="form-control" name="BirthDate" asp-for="AddStudentRequest.BirthDate" /><br />
+        </div>
+        <div class="mb-3">
+            <center>
+                 
+        <button type="submit" class="btn btn-primary">Save</button>
+        <strong> <a class="nav-link" asp-area="" asp-page="/Students/List">List Students</a></strong>
+                   
+       
+                </center>
+        </div>
+        </form>
+    </div>
+</div>
+  
+
+
+
