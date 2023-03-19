@@ -1,9 +1,11 @@
-﻿namespace KUSYS_Demo.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace KUSYS_Demo.Models
 {
     public class Course
     {
         public string CourseId { get; set; }
         public string CourseName { get; set; }
-        public int StudentId { get; set; }
+     
     }
 }

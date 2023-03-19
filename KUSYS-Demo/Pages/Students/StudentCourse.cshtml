@@ -1,0 +1,70 @@
+﻿@page 
+@model KUSYS_Demo.Pages.Students.StudentCourseModel
+@{
+}
+<div class="bg-secondary bg-opacity-10 py-2 mb-4">
+    <div class="container">
+        <h1>LISTING STUDENTS</h1>
+    </div>
+</div>
+
+@if (Model.students != null && Model.students.Any())
+{
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <td>FirstName</td>
+                    <td>LastName</td>
+                    <td>Detail</td>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in Model.students)
+                {
+                    <tr>
+
+                        <td>@student.FirstName</td>
+                        <td>@student.LastName</td>
+                       <td><a href="/Students/Details/@student.StudentId">Details</a></td>
+                        @*<td><button class="btn btn-sm btn-dark details" data-id="@student.StudentId">Details</button></td>*@
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+    <div class="modal fade" tabindex="-1" role="dialog" id="ModalCourse">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Product Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body"></div>
+            </div>
+        </div>
+    </div>
+    @section scripts{
+    <script>
+        $(function () {
+            $('button.details').on('click', function () {
+                $('.modal-body').load(`/Detail/product?id=${$(this).data('StudentId')}`);
+            });
+        })
+    </script>
+}
+}
+
+
+else
+{
+    <div class="container">
+        <p>Page Not Found Add Student!</p>
+    </div>
+}

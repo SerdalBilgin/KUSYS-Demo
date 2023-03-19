@@ -1,0 +1,44 @@
+﻿@page "{StudentId:int}"
+@model KUSYS_Demo.Pages.Students.EditCoursesModel
+@{
+}
+<div class="bg-secondary bg-opacity-10 py-2 mb-4">
+    <div class="container">
+        <h1>STUDENT INFORMATION</h1>
+    </div>
+</div>
+
+@if (Model.Student != null)
+{
+    <div>
+        <div class="container">
+            <form method="post">
+
+                <div class="mb-3">
+                    <b><label for="FName">First Name :</label></b>
+                    <input type="text" id="FName" class="form-control" name="FirstName" asp-for="Student.FirstName" /><br />
+                </div>
+                <div class="mb-3">
+                    <b>  <label for="LName" class="form-label">Last Name :</label></b>
+                    <input type="text" id="LName" class="form-control" name="LastName" asp-for="Student.LastName" /><br />
+                </div>
+            
+                <div class="mb-3">
+                    <center>
+
+                        <button type="submit" class="btn btn-primary" asp-page-handler="Edit">Save</button>
+                        <button type="submit" class="btn btn-danger" asp-page-handler="Delete">Delete</button>
+                    </center>
+                </div>
+            </form>
+
+        </div>
+    </div>
+}
+else
+{
+    <div class="container">
+        <p>Sayfa Bulunamadı!</p>
+    </div>
+}
+

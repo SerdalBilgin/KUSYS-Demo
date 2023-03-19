@@ -1,5 +1,5 @@
 ﻿@page
-@model IndexModel
+@model IndexUsersModel
 @{
     Layout = null;
 }
@@ -14,9 +14,11 @@
         body {
             font-family: Arial, Helvetica, sans-serif;
         }
+
         form {
             border: 3px solid #000000;
         }
+
         input[type=text], input[type=password] {
             width: 100%;
             padding: 12px 15px;
@@ -25,7 +27,7 @@
             border: 1px solid #ccc;
             box-sizing: border-box;
         }
-    
+
         .lgnbtn {
             background-color: #4CAF50;
             color: white;
@@ -35,28 +37,28 @@
             cursor: pointer;
             width: 50%;
         }
-      
-      
     </style>
 
 </head>
 <body>
-    <form method="post" asp-page="Index" >
+    <form method="post" asp-page="IndexUsers">
 
         <div class="container">
             <center>
-                <h2>Admin Login Form</h2>
-                <strong> <a class="nav-link"  asp-area="" asp-page="/IndexUsers">User Login Form</a></strong>
+                <h2>User Login Form</h2>
+               
+                        <strong> <a class="nav-link" asp-area="" asp-page="/Index">Admin Login Form</a></strong>
+                   
             </center>
             <br /> @Model.Msg<br />
-            <label> <b>Admin-Username</b></label>
+            <label> <b>User-Username</b></label>
             <input type="text" asp-for="@Model.Username" />
-            <label><b>Admin Password</b></label>    
+            <label><b>User Password</b></label>
             <input type="password" asp-for="@Model.Password" />
             <center>
                 <input type="submit" class="lgnbtn" value="Login" />
             </center>
-      
+
 
 
         </div>
@@ -64,3 +66,4 @@
 </body>
 </html>
 
+                                 

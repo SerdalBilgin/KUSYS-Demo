@@ -2,6 +2,7 @@ using KUSYS_Demo.DataContext;
 using KUSYS_Demo.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace KUSYS_Demo.Pages.Students
 {
@@ -10,6 +11,10 @@ namespace KUSYS_Demo.Pages.Students
     {
         [BindProperty]
         public Student Student { get; set; }
+
+        [BindProperty]
+        public Course Course { get; set; }
+
         private readonly AplicationDbContext aplicationDbContext;
             
         public EditModel( AplicationDbContext aplicationDbContext)
@@ -17,10 +22,12 @@ namespace KUSYS_Demo.Pages.Students
             this.aplicationDbContext = aplicationDbContext;
         }
 
+        public List<Course> Courses { get; set; }
 
         public async Task OnGet(int StudentId)
         {
           Student = await aplicationDbContext.Students.FindAsync(StudentId);
+          //Courses = await aplicationDbContext.Courses.Include(c => c.StudentId == StudentId).ToListAsync();        
         
         }
         public async Task<IActionResult> OnPostEdit() 

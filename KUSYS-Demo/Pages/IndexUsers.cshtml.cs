@@ -1,16 +1,13 @@
-﻿using KUSYS_Demo.Roles;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace KUSYS_Demo.Pages
 {
-    public class IndexModel : PageModel
+    public class IndexUsersModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly ILogger<IndexUsersModel> _logger;
 
-        
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexUsersModel(ILogger<IndexUsersModel> logger)
         {
             _logger = logger;
         }
@@ -24,7 +21,6 @@ namespace KUSYS_Demo.Pages
 
         [BindProperty]
         public string Password { get; set; }
-       
 
         public string Msg { get; set; }
 
@@ -35,16 +31,15 @@ namespace KUSYS_Demo.Pages
                 Msg = "Required to Fill in The Fields";
                 return Page();
             }
-            else if (Username.Equals("admin") && Password.Equals("admin") )
+            else if (Username.Equals("user") && Password.Equals("user"))
             {
-                return RedirectToPage("/Students/List");
+                return RedirectToPage("/Students/Add");
             }
             else
             {
-                Msg = "Username or Password is İncorrect";
+                Msg = "Username or Password is �ncorrect";
                 return Page();
             }
         }
-
     }
 }
